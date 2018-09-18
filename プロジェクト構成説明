@@ -1,0 +1,6 @@
+◆プロジェクト構成
+・HTMLファイルパス
+Chapling/src/main/resources/templates/messages.html
+
+・次画面遷移　指定箇所
+Chapling/src/main/java/chat/spring/MessageController.java　38行目
