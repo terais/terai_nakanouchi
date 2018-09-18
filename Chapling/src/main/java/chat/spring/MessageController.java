@@ -35,7 +35,7 @@ public class MessageController {
         }
         service.save(new Message(messageForm.getName(), messageForm.getText(), request.getRemoteAddr()));
 
-        return "redirect:126.12.54.128/";
+        return "redirect:messages";
     }
 
 }
