@@ -1,4 +1,4 @@
-package chat.spring;
+package chat.spring.form;
 import javax.validation.constraints.Size;
 
 public class MessageForm {

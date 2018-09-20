@@ -1,4 +1,4 @@
-package chat.spring;
+package chat.spring.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -9,6 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import chat.spring.entity.Message;
+import chat.spring.form.MessageForm;
+import chat.spring.service.MessageService;
 
 @Controller
 public class MessageController {
@@ -35,7 +39,7 @@ public class MessageController {
         }
         service.save(new Message(messageForm.getName(), messageForm.getText(), request.getRemoteAddr()));
 
-        return "redirect:messages";
+        return "redirect:http://chapring.tk/messages";
     }
 
 }

@@ -1,7 +1,10 @@
-package chat.spring;
+package chat.spring.repository;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+
+import chat.spring.entity.Message;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 

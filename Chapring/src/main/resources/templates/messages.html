@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="refresh" content="60" >
-<title>Chapling</title>
+<title>Chapring</title>
 </head>
 <body>
-<h1>Chapling</h1>
+<h1>Chapring</h1>
 
-<form action="/messages" th:action="@{/messages}" th:object="${messageForm}" method="post">
+<form action="../../messages" th:action="@{../../messages}" th:object="${messageForm}" method="post">
     <p>名前: <input type="text" th:field="*{name}" />
        <em th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</em></p>
     <p><textarea cols="40" rows="4" placeholder="Type anything" th:field="*{text}"></textarea>

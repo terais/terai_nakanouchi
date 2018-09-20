@@ -1,4 +1,4 @@
-package chat.spring;
+package chat.spring.entity;
 
 import java.util.Date;
 

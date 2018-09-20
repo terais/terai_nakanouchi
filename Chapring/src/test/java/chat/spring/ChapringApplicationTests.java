@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ChaplingApplicationTests {
+public class ChapringApplicationTests {
 
 	@Test
 	public void contextLoads() {
