@@ -1,6 +1,19 @@
 ◆プロジェクト構成
+
+・フレームワーク
+Spring boot
+
+・OR/Mapper(?)
+JPA
+
+・DB
+MySql
+
+・テンプレートエンジン
+thymeleaf
+
 ・HTMLファイルパス
-Chapling/src/main/resources/templates/messages.html
+Chapring/src/main/resources/templates/messages.html
 
 ・次画面遷移　指定箇所
-Chapling/src/main/java/chat/spring/MessageController.java　38行目
+Chapring/src/main/java/chat/spring/MessageController.java
