@@ -7,8 +7,12 @@
 </head>
 <body>
 <h1>Chapring</h1>
-
+<!-- サーバ用 -->
 <form action="../../messages" th:action="@{../../messages}" th:object="${messageForm}" method="post">
+
+<!-- ローカル用 -->
+<!-- <form action="/messages" th:action="@{/messages}" th:object="${messageForm}" method="post">  -->
+
     <p>名前: <input type="text" th:field="*{name}" />
        <em th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</em></p>
     <p><textarea cols="40" rows="4" placeholder="Type anything" th:field="*{text}"></textarea>

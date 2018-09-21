@@ -3,6 +3,7 @@ package chat.spring.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import chat.spring.Common;
 import chat.spring.entity.Message;
+import chat.spring.entity.User;
 import chat.spring.form.LoginForm;
 import chat.spring.form.MessageForm;
 import chat.spring.service.LoginService;
@@ -19,11 +23,13 @@ import chat.spring.service.MessageService;
 
 @Controller
 public class LoginController {
-
+	
+	@Autowired
+	HttpSession session;
     @Autowired
     private LoginService loginService;
     @Autowired
-    private MessageService messageService;
+    private MessageService service;
 
     @RequestMapping(value = "/", method = { RequestMethod.GET })
     public String messages(Model model) {
@@ -37,16 +43,23 @@ public class LoginController {
     	if (bindingResult.hasErrors()) {
             return "login";
         }
-        boolean checkUser = loginService.checkUser(loginForm);
+    	
+    	//DB問い合わせ
+        User user = loginService.checkUser(loginForm);
         
         //IDとPASSでHITがあればmessage画面に遷移
-        if(checkUser) {
-        model.addAttribute("loginForm", loginForm);
-        model.addAttribute("messageForm", new MessageForm());
-        List<Message> messages = messageService.getRecentMessages(100);
-        model.addAttribute("messages", messages);
+        if(user != null) {
+        	Common common = new Common();
+        	//セッションにIDをセット
+        	common.setIdSession(session, user.getId());
+        	model.addAttribute("loginForm", loginForm);
+        	
+        	
+            model.addAttribute("messageForm", new MessageForm());
+            List<Message> messages = service.getRecentMessages(100);
+            model.addAttribute("messages", messages);
 
-        return "messages";
+        	return "messages";
         }
         return "login";
     }

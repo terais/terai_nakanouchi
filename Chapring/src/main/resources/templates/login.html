@@ -6,13 +6,19 @@
 </head>
 <body>
 <h1>Chapring - LOGIN</h1>
-
+<!-- サーバ用 -->
 <form action="../../login" th:action="@{../../login}" th:object="${loginForm}" method="post">
+
+<!-- ローカル用 -->
+<!-- <form action="/login" th:action="@{/login}" th:object="${loginForm}" method="post">  -->
+
     <p>ID: <input type="text" th:field="*{id}" />
        <em th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Id Error</em></p>
     <p>PASS: <input type="text" th:field="*{pass}" />
        <em th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}">Pass Error</em></p>
     <p><input type="submit" value="送信" /></p>
 </form>
+
+<img alt="Red Apple" th:src="@{./img/kizuna.gif}"></img>
 </body>
 </html>
